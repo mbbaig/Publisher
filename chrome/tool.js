@@ -8,10 +8,8 @@ const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter",
-  "resource:///modules/devtools/shared/event-emitter.js");
-XPCOMUtils.defineLazyModuleGetter(this, "promise",
-  "resource://gre/modules/commonjs/sdk/core/promise.js", "Promise");
+XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter", "resource:///modules/devtools/shared/event-emitter.js");
+XPCOMUtils.defineLazyModuleGetter(this, "promise", "resource://gre/modules/commonjs/sdk/core/promise.js", "Promise");
 
 function startup(aToolbox) {
   return promise.resolve(null);
@@ -19,4 +17,9 @@ function startup(aToolbox) {
 
 function shutdown() {
   return promise.resolve(null);
+}
+
+function showName() {
+  name = document.getElementById("your-name").value;
+  document.getElementById("hello-world").value = name;
 }

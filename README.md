@@ -1,4 +1,4 @@
-Restartless-Template
+Bug 917950 - Firefox Dev Tools Add-on for Publishing to Webmaker
 ===
 
 Simple template project for developing restartless Firefox Developer Tools addons.

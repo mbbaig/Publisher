@@ -9,11 +9,9 @@ Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 Cu.import("resource:///modules/devtools/gDevTools.jsm");
 
-XPCOMUtils.defineLazyGetter(this, "osString", () =>
-  Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULRuntime).OS);
+XPCOMUtils.defineLazyGetter(this, "osString", () => Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULRuntime).OS);
 
-XPCOMUtils.defineLazyGetter(this, "toolStrings", () =>
-  Services.strings.createBundle("chrome://my-addon/locale/strings.properties"));
+XPCOMUtils.defineLazyGetter(this, "toolStrings", () => Services.strings.createBundle("chrome://my-addon/locale/strings.properties"));
 
 XPCOMUtils.defineLazyGetter(this, "toolDefinition", () => ({
   id: "my-addon",
