@@ -5,14 +5,14 @@
 
 const { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 
-this.EXPORTED_SYMBOLS = ["MyAddonPanel"];
+this.EXPORTED_SYMBOLS = ["AddonPanel"];
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter", "resource:///modules/devtools/shared/event-emitter.js");
 XPCOMUtils.defineLazyModuleGetter(this, "promise", "resource://gre/modules/commonjs/sdk/core/promise.js", "Promise");
 
-this.MyAddonPanel = function MyAddonPanel(iframeWindow, toolbox) {
+this.AddonPanel = function AddonPanel(iframeWindow, toolbox) {
   this.panelWin = iframeWindow;
   this._toolbox = toolbox;
   this._destroyer = null;
@@ -20,7 +20,7 @@ this.MyAddonPanel = function MyAddonPanel(iframeWindow, toolbox) {
   EventEmitter.decorate(this);
 };
 
-MyAddonPanel.prototype = {
+AddonPanel.prototype = {
   open: function() {
     let panelWin = this.panelWin;
     let panelLoaded = promise.defer();
@@ -39,7 +39,7 @@ MyAddonPanel.prototype = {
         return this;
       })
       .then(null, function onError(aReason) {
-        Cu.reportError("MyAddonPanel open failed. " +
+        Cu.reportError("AddonPanel open failed. " +
                        aReason.error + ": " + aReason.message);
       });
   },
@@ -60,7 +60,7 @@ MyAddonPanel.prototype = {
         this.emit("destroyed");
       })
       .then(null, function onError(aReason) {
-        Cu.reportError("MyAddonPanel destroy failed. " +
+        Cu.reportError("AddonPanel destroy failed. " +
                        aReason.error + ": " + aReason.message);
       });
   }

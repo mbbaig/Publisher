@@ -1,3 +1,3 @@
-content my-addon chrome/
-locale  my-addon en-US locale/en-US/
-skin    my-addon classic/1.0 skin/
+content publisher chrome/
+locale  publisher en-US locale/en-US/
+skin    publisher classic/1.0 skin/

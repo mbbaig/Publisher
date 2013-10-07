@@ -1,4 +1,4 @@
-PROJECT="my-addon"
+PROJECT="publisher"
 PWD=`pwd`
 BUILD="build"
 VERSION=`git describe --tags`

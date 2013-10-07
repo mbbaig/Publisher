@@ -10,6 +10,10 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
 XPCOMUtils.defineLazyModuleGetter(this, "EventEmitter", "resource:///modules/devtools/shared/event-emitter.js");
 XPCOMUtils.defineLazyModuleGetter(this, "promise", "resource://gre/modules/commonjs/sdk/core/promise.js", "Promise");
+XPCOMUtils.defineLazyModuleGetter(this, "tabs", "resource://gre/modules/commonjs/sdk/tabs.js");
+
+//var { Ci } = require('chrome');
+//var u = require('sdk/window/utils');
 
 function startup(aToolbox) {
   return promise.resolve(null);
@@ -19,7 +23,13 @@ function shutdown() {
   return promise.resolve(null);
 }
 
-function showName() {
-  name = document.getElementById("your-name").value;
-  document.getElementById("hello-world").value = name;
+tabs.on('activate', function () {
+  console.log('active: ' + tabs.activeTab.url);
+});
+
+function showDOM() {
+  //alert(inspector.window.document.getElementsByTagName("*"));
+  //var browserWindow = u.getMostRecentBrowserWindow();
+  //var window = browserWindow.content;
+  //alert(browserWindow.content.document);
 }
